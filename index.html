@@ -17,22 +17,56 @@
             <p class="lead">Guess what letter I'm thinking of</p>
         </div>
     </div>
+    
+    <div>
+        <p id="wins-text"></p>
+        <p id="losses-text"></p>
+        <p id="guesses-left-text"></p>
+        <p id="guesses-log-text"></p>
+    </div>
+    <!--
     <h3>Wins:</h3>
     <h3>Losses:</h3>
     <h3>Guesses Left:</h3>
     <h3>Your Guesses So Far:</h3>
+    -->
     <script type="text/javascript">
 
-        var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        // Array for user and computer options
+        var computerOptions = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+        // Variables for wins, losses, and guesses left
         var wins = 0;
         var losses = 0;
         var guessesLeft = 10;
+
+        //Variables for HTML references
+        var winsText = document.getElementById("wins-text"); 
+        var lossesText = document.getElementById("losses-text");
+        var guessesLeftText = document.getElementById("guesses-left-text");
+        var guessesLogText = document.getElementById("guesses-log-text");
         
-        /*function for onkeyup*/
-        function onkeyup() {
-        var rand = myArray[Math.floor(Math.random() * myArray.length)];
-    
-        };
+        //function for onkeyup
+        document.onkeyup = function(event) {
+            var userGuess = event.key;
+
+            var computerGuess = computerOptions[Math.floor(Math.random() * computerOptions.length)];
+       
+
+            if (userGuess === computerGuess) {
+                wins++;
+            }
+                else {
+                    (guessesLeft--);
+                }
+            
+
+                //Show the text for wins, losses, guesses left, guesses log
+                winsText.textContent = "Wins: " +  wins;
+                lossesText.textContent = "Losses: " + losses;
+                guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
+                guessesLogText.textContent = "Your Guesses So Far: " + userGuess;
+            }
+        
     </script>
 </body>
 </html>
