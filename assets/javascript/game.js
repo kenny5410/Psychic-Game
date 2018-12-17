@@ -25,7 +25,7 @@ document.onkeyup = function(event) {
 
     if (userGuess === computerGuess) {
         wins++;
-        alert("Congrats! You win!");
+        alert("Congrats! You matched my guess!");
         document.getElementById("wins-text").innerHTML = "Wins: " + wins;
         resetGame();
     }
@@ -35,7 +35,7 @@ document.onkeyup = function(event) {
             document.getElementById("guesses-log-text").innerHTML = "Your Guesses So Far: " + userGuessLog;
         }
         if (guessesLeft === 0) {
-            alert("Sorry! You lose!");
+            alert("Game over! You are out of guesses!");
             losses++;
             document.getElementById("losses-text").innerHTML = "Losses: " + losses;
             resetGame();
